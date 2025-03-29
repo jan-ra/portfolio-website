@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    /* Blob colors - light mode */
+    --blob-color-1: rgba(79, 70, 229, 0.6); /* indigo */
+    --blob-color-2: rgba(236, 72, 153, 0.6); /* pink */
+    --blob-color-3: rgba(59, 130, 246, 0.6); /* blue */
+    --blob-color-4: rgba(16, 185, 129, 0.6); /* emerald */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    /* Blob colors - dark mode */
+    --blob-color-1: rgba(139, 92, 246, 0.6); /* purple */
+    --blob-color-2: rgba(248, 113, 113, 0.6); /* red */
+    --blob-color-3: rgba(14, 165, 233, 0.6); /* sky */
+    --blob-color-4: rgba(52, 211, 153, 0.6); /* emerald */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  svg {
+    @apply stroke-current fill-current;
+  }
+}
+
+/* Blob animations */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  mix-blend-mode: screen;
+}
+
+.blob-1 {
+  width: 300px;
+  height: 300px;
+  left: 10%;
+  top: 20%;
+  background: var(--blob-color-1);
+  animation: float1 25s ease-in-out infinite;
+}
+
+.blob-2 {
+  width: 350px;
+  height: 350px;
+  right: 10%;
+  top: 30%;
+  background: var(--blob-color-2);
+  animation: float2 20s ease-in-out infinite;
+}
+
+.blob-3 {
+  width: 250px;
+  height: 250px;
+  left: 30%;
+  bottom: 10%;
+  background: var(--blob-color-3);
+  animation: float3 22s ease-in-out infinite;
+}
+
+.blob-4 {
+  width: 400px;
+  height: 400px;
+  right: 20%;
+  bottom: 20%;
+  background: var(--blob-color-4);
+  animation: float4 28s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(100px, 50px) scale(1.1);
+  }
+  50% {
+    transform: translate(50px, 100px) scale(0.9);
+  }
+  75% {
+    transform: translate(-70px, 30px) scale(1.05);
+  }
+}
+
+@keyframes float2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-80px, -60px) scale(1.1);
+  }
+  50% {
+    transform: translate(-40px, 40px) scale(0.9);
+  }
+  75% {
+    transform: translate(60px, -20px) scale(1.05);
+  }
+}
+
+@keyframes float3 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(60px, -40px) scale(1.1);
+  }
+  50% {
+    transform: translate(-60px, -80px) scale(0.9);
+  }
+  75% {
+    transform: translate(-20px, 60px) scale(1.05);
+  }
+}
+
+@keyframes float4 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-40px, 60px) scale(1.1);
+  }
+  50% {
+    transform: translate(80px, 20px) scale(0.9);
+  }
+  75% {
+    transform: translate(20px, -60px) scale(1.05);
+  }
+}
+
+/* Markdown styles */
+.markdown h2 {
+  @apply text-2xl font-bold mt-8 mb-4;
+}
+
+.markdown h3 {
+  @apply text-xl font-bold mt-6 mb-3;
+}
+
+.markdown p {
+  @apply my-4;
+}
+
+.markdown ul {
+  @apply list-disc pl-6 my-4;
+}
+
+.markdown ol {
+  @apply list-decimal pl-6 my-4;
+}
+
+.markdown li {
+  @apply mb-2;
+}
+
+.markdown blockquote {
+  @apply border-l-4 border-primary pl-4 italic my-4;
+}
+
+.markdown pre {
+  @apply my-4 p-4 rounded-md bg-muted overflow-x-auto;
+}
+
+.markdown code {
+  @apply font-mono text-sm;
+}
+
+.markdown a {
+  @apply text-primary hover:underline;
+}
+
+.markdown strong {
+  @apply font-bold;
+}
+
