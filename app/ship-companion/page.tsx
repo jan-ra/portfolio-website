@@ -1,6 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft } from "lucide-react";
+import {
+  ArrowLeft,
+  Bed,
+  CookingPot,
+  ListChecks,
+  Map,
+  Ship,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FeatureCarousel } from "@/components/feature-carousel";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -41,8 +48,9 @@ export default function ShipCompanionPage() {
                     Ship Companion
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    Your custom app for your ship to better communicate with
-                    your guests and make them feel safer.
+                    A companion app for your sailing ship. Upgrade your guest
+                    communications and provide guest with another to feel more
+                    informed about their trip.
                   </p>
                 </div>
               </div>
@@ -66,8 +74,7 @@ export default function ShipCompanionPage() {
                   Features
                 </h2>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  Explore the key features that make Ship Companion the perfect
-                  tool for maritime operations.
+                  Explore the key features of Ship Companion.
                 </p>
               </div>
             </div>
@@ -98,8 +105,7 @@ export default function ShipCompanionPage() {
                   Impressions
                 </h2>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  Discover what makes Ship Companion the essential tool for
-                  maritime operations.
+                  Get a glimpse of how the app looks in action.
                 </p>
               </div>
 
@@ -119,9 +125,11 @@ export default function ShipCompanionPage() {
                   Make the App Your Own
                 </h2>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  Ship Companion is a white label solution customized for
-                  various maritime companies. Explore the different versions
-                  we've built for our clients.
+                  Ship Companion is a white label solution. This means it can be
+                  easily customized to fit your ships identity. If you already
+                  have a website most of the work is already done. Check the
+                  examples to see how we fit the apps look and feel into the
+                  already exisiting identiy of your ship.
                 </p>
               </div>
             </div>
@@ -148,8 +156,8 @@ export default function ShipCompanionPage() {
                     <h3 className="text-lg font-bold mb-2">{customer}</h3>
                     <p className="text-sm text-muted-foreground mb-4">
                       {customer === "Ambiance"
-                        ? "Customized for international container shipping with advanced route optimization and fuel efficiency tracking."
-                        : "Specialized in sustainable shipping practices with carbon footprint tracking and emission reduction tools."}
+                        ? "Sven of the Ambiance was an early adopter of the app and gave a lot of great input on how to design the features."
+                        : "The Allure app was the first showcase that the app is able to work well for more than one ship."}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {/* Use the PopoverButton here */}
@@ -171,8 +179,9 @@ export default function ShipCompanionPage() {
                   Why I Built Ship Companion
                 </h2>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  Combining technical expertise with maritime industry knowledge
-                  to create the perfect solution
+                  I have a unique overlap of knowing what guests need and want
+                  on the ijselmeer and actually being able to put that into
+                  software.
                 </p>
               </div>
             </div>
@@ -180,43 +189,49 @@ export default function ShipCompanionPage() {
             <div className="grid gap-8 md:grid-cols-3">
               <div className="bg-muted/50 rounded-lg p-6 flex flex-col items-center text-center">
                 <div className="h-12 w-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4">
-                  <Monitor className="h-6 w-6" />
+                  <Users className="h-6 w-6" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Industry Gap</h3>
+                <h3 className="text-xl font-bold mb-2">Hesitant Guests</h3>
                 <p className="text-muted-foreground">
-                  After 10+ years working in maritime logistics, I identified a
-                  critical gap between existing software solutions and the
-                  actual needs of shipping professionals. Ship Companion was
-                  built to address these real-world challenges with practical,
-                  user-focused tools.
+                  Guest squisition is a common problem on the Ijselmeer. New
+                  groups and organizers usually put a lot of trust into the crew
+                  and the ships presentation when deciding to take on this new
+                  kind of experience. The app can help ease that uncertainty by
+                  providing a clear overview of the ship and its features. More
+                  information in a clear way and the safteynet of available
+                  tools before and during the trip can make the choice to go on
+                  a trip way easier.
                 </p>
               </div>
 
               <div className="bg-muted/50 rounded-lg p-6 flex flex-col items-center text-center">
                 <div className="h-12 w-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4">
-                  <ClipboardList className="h-6 w-6" />
+                  <Ship className="h-6 w-6" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Hands-On Experience</h3>
                 <p className="text-muted-foreground">
-                  My background includes direct experience as a logistics
-                  coordinator and fleet manager. This firsthand knowledge of
-                  maritime operations means Ship Companion is designed by
-                  someone who truly understands the daily challenges and
-                  workflows of your team.
+                  I have been a guest on multiple ships of the Ijseelmeer for
+                  more than 10 years now. I have organized or just expericed the
+                  sailing trips. Through these experiences I know what questions
+                  guests ask over and over again. And I also know what
+                  uncertaintiy keeps them up at night before commiting to a
+                  trip.
                 </p>
               </div>
 
               <div className="bg-muted/50 rounded-lg p-6 flex flex-col items-center text-center">
                 <div className="h-12 w-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4">
-                  <Users className="h-6 w-6" />
+                  <Monitor className="h-6 w-6" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Client Partnerships</h3>
+                <h3 className="text-xl font-bold mb-2">Technical Knowledge</h3>
                 <p className="text-muted-foreground">
-                  Each version of Ship Companion is developed through close
-                  collaboration with clients. My approach combines technical
-                  development with maritime consulting, ensuring the solution
-                  not only meets technical requirements but also aligns
-                  perfectly with operational needs.
+                  Developing a mobile app running on all the relevant operating
+                  systems can be tricky and expensive. With my 8 years of
+                  professional experience in building software I am able to
+                  create a well working application that run smoothly and does
+                  not need much upkeep. Ship companion runs completely local on
+                  the guests device. No servers are needed. Things are less
+                  prone to break.
                 </p>
               </div>
             </div>
@@ -275,29 +290,29 @@ const features = [
   {
     title: "Cabin planning",
     description:
-      "Monitor your fleet's position and status in real-time with advanced GPS integration.",
-    icon: <Monitor className="h-6 w-6" />,
+      "Allow your guests to plan and share the cabin layout far in advance of their trip-",
+    icon: <Bed className="h-6 w-6" />,
     image: "/cabinplan.PNG?height=600&width=800&text=Ship+Companion",
   },
   {
     title: "Checklists",
     description:
-      "Efficiently manage cargo manifests, loading plans, and inventory across your entire fleet.",
-    icon: <ClipboardList className="h-6 w-6" />,
+      "Give the guests security on what to bring on what to do on board and what to bring to the trip.",
+    icon: <ListChecks className="h-6 w-6" />,
     image: "/checklist.PNG?height=600&width=800&text=Ship+Companion",
   },
   {
     title: "Custom Offline Harbour Cards",
     description:
-      "Calculate the most efficient routes based on weather conditions, fuel consumption, and delivery schedules.",
-    icon: <MapPin className="h-6 w-6" />,
+      "Provide your guests with offline maps of all the relevant harbours and point out the places they should visit.",
+    icon: <Map className="h-6 w-6" />,
     image: "/harbour.PNG?height=600&width=800&text=Ship+Companion",
   },
   {
     title: "Recipes that work for big groups",
     description:
-      "Keep your fleet in optimal condition with automated maintenance alerts and scheduling.",
-    icon: <Users className="h-6 w-6" />,
+      "Allow groups to plan the big meals they need to gain the streght to sail the ship. Reduce the stress of organizers.",
+    icon: <CookingPot className="h-6 w-6" />,
     image: "/recipies.PNG?height=600&width=800&text=Ship+Companion",
   },
 ];

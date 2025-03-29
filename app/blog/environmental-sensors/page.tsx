@@ -31,8 +31,7 @@ export default function EnvironmentalSensorPage() {
         <article className="container px-4 md:px-6 max-w-3xl mx-auto prose dark:prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-a:text-primary">
           <div className="mb-8">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-              Developing a Custom ESP8266-Based Environment Sensor: A Technical
-              Deep Dive
+              Developing a Custom ESP8266-Based Environment Sensor
             </h1>
             <p className="text-muted-foreground">April 3, 2023</p>
           </div>
