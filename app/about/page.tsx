@@ -55,25 +55,27 @@ export default function AboutPage() {
                 Jan Ramdohr
               </h1>
               <h2 className="text-xl text-muted-foreground mb-6">
-                Cloud Engineer & Full Stack Developer
+                {/* Back to the original, professional title */}
+                Software Engineer and Data Explainer
               </h2>
               <div className="prose dark:prose-invert max-w-none">
+                {/* Updated Introduction - Friendly Professional */}
                 <p>
-                  Hello! I'm Jan, a passionate developer with over 8 years of
-                  experience in creating web and mobile applications. I
-                  specialize in building solutions for the maritime industry,
-                  combining my technical expertise with domain knowledge to
-                  create tools that solve real-world problems.
+                  Hello! I'm Jan, a Software Engineer based in Delft with a
+                  strong interest in cloud technologies and data analysis. I
+                  enjoy building robust software solutions and exploring how
+                  data can provide valuable insights.
                 </p>
                 <p>
-                  My journey in tech began with a fascination for how software
-                  can transform traditional industries. This led me to focus on
-                  creating applications that bridge the gap between complex
-                  maritime operations and modern technology.
+                  My background includes a mix of academic study and hands-on
+                  professional experience, giving me skills in programming,
+                  system architecture, and project collaboration. I thrive in
+                  environments where I can contribute to technology-driven
+                  projects.
                 </p>
                 <p>
-                  When I'm not coding, you can find me sailing, exploring new
-                  technologies, or contributing to open-source projects.
+                  Outside of work, I'm involved in organizing youth sailing
+                  camps and enjoy the creativity of improv theater.
                 </p>
               </div>
             </div>
@@ -82,6 +84,7 @@ export default function AboutPage() {
           {/* Location and Languages */}
           <Card className="mb-12">
             <CardHeader>
+              {/* Standard Title */}
               <CardTitle>Location & Languages</CardTitle>
             </CardHeader>
             <CardContent>
@@ -98,9 +101,9 @@ export default function AboutPage() {
                   <div>
                     <h3 className="font-medium">Languages</h3>
                     <div className="flex flex-wrap gap-2 mt-1">
+                      {/* Standard Badges */}
                       <Badge>German (Native)</Badge>
-                      <Badge>English (Fluent)</Badge>
-                      <Badge>Dutch (Getting there)</Badge>
+                      <Badge>English (Professional)</Badge>
                     </div>
                   </div>
                 </div>
@@ -112,10 +115,12 @@ export default function AboutPage() {
           <div className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
               <Briefcase className="h-6 w-6" />
+              {/* Standard Title */}
               Work Experience
             </h2>
 
             <div className="space-y-8">
+              {/* Updated workExperience array data below */}
               {workExperience.map((job, index) => (
                 <div
                   key={index}
@@ -140,7 +145,16 @@ export default function AboutPage() {
                       </>
                     )}
                   </div>
-                  <p className="mb-3">{job.description}</p>
+                  {/* Display description points as a list if applicable */}
+                  {Array.isArray(job.description) ? (
+                    <ul className="list-disc pl-5 space-y-1 mb-3">
+                      {job.description.map((point, i) => (
+                        <li key={i}>{point}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="mb-3">{job.description}</p>
+                  )}
                   <div className="flex flex-wrap gap-2">
                     {job.skills.map((skill, skillIndex) => (
                       <Badge key={skillIndex} variant="secondary">
@@ -157,10 +171,12 @@ export default function AboutPage() {
           <div>
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
               <GraduationCap className="h-6 w-6" />
+              {/* Standard Title */}
               Education
             </h2>
 
             <div className="space-y-8">
+              {/* Updated education array data below */}
               {education.map((edu, index) => (
                 <div
                   key={index}
@@ -187,7 +203,16 @@ export default function AboutPage() {
                       </>
                     )}
                   </div>
-                  <p>{edu.description}</p>
+                  {/* Display description points as a list if applicable */}
+                  {Array.isArray(edu.description) ? (
+                    <ul className="list-disc pl-5 space-y-1">
+                      {edu.description.map((point, i) => (
+                        <li key={i}>{point}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>{edu.description}</p>
+                  )}
                 </div>
               ))}
             </div>
@@ -199,9 +224,11 @@ export default function AboutPage() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:justify-between">
             <p className="text-center text-sm text-muted-foreground">
-              © {new Date().getFullYear()} ramdohr.dev. All rights reserved.
+              {/* Standard Footer */}© {new Date().getFullYear()} ramdohr.dev.
+              All rights reserved.
             </p>
             <div className="flex gap-4">
+              {/* Standard Links */}
               <Link
                 href="/contact"
                 className="text-sm text-muted-foreground hover:text-foreground"
@@ -222,63 +249,103 @@ export default function AboutPage() {
   );
 }
 
-// Sample work experience data
+// Updated work experience data - Professional but approachable tone
 const workExperience = [
   {
     title: "Cloud Engineer",
     company: "TJIP BV.",
     period: "2024 - Present",
     location: "Delft, Netherlands",
-    description:
-      "Leading the development of Ship Companion and other maritime technology solutions. Managing a team of 5 developers and coordinating with stakeholders to deliver high-quality software products.",
-    skills: ["Azure", "Kubernernetes", "DevOps", "GitOps", "Docker"],
+    description: [
+      // Clear, professional phrasing
+      "Maintaining and upgrading the company's server infrastructure.",
+      "Ensuring server infrastructure remains compliant with relevant standards.",
+      "Improving DevOps processes and the overall developer experience.",
+    ],
+    skills: [
+      "Azure",
+      "Kubernetes",
+      "DevOps",
+      "GitOps",
+      "Docker",
+      "Infrastructure Management",
+      "Compliance",
+    ],
   },
   {
-    title: "Research Assistant",
+    title: "Student Software Developer",
     company: "University of Amsterdam",
-    period: "2023",
+    period: "Aug 2023 - Oct 2023",
     location: "Amsterdam, Netherlands",
     description:
-      "Developed and maintained web applications for logistics and shipping companies. Implemented real-time tracking systems and optimized database performance for large-scale applications.",
-    skills: ["C", "Node.js", "SQL", "OpenAPI", "Docker"],
+      "Developed and deployed a comprehensive API for data management, aimed at enhancing scientific project integration.", // Professional phrasing
+    skills: ["API Development", "Data Management", "Python"],
   },
   {
-    title: "Full Stack Developer",
+    title: "Junior Software Engineer",
     company: "Jungheinrich AG",
-    period: "2021 - 2023",
+    period: "Apr 2021 - Aug 2022",
     location: "Hamburg, Germany",
-    description:
-      "Built responsive web applications and mobile apps for various clients in the transportation sector. Focused on front-end development and user experience design.",
-    skills: ["Azure", "Node.js", "React Native", "Nest.js", "UI/UX Design"],
+    description: [
+      // Professional phrasing
+      "Engineered and implemented custom microservices in Azure to streamline SAP service integration.",
+      "Conducted code reviews and coordinated with external developers to maintain high software quality standards.",
+      "Facilitated DevOps processes for SAP interfaces, improving system reliability and deployment efficiency.",
+    ],
+    skills: [
+      "Azure",
+      "Microservices",
+      "SAP Integration",
+      "DevOps",
+      "Code Review",
+      "Java",
+      "TypeScript",
+    ],
   },
   {
-    title: "Dual Student",
+    title: "Trainee (Bachelor Cooperation)",
     company: "Jungheinrich AG",
-    period: "2017 - 2021",
+    period: "Aug 2017 - Mar 2021",
     location: "Hamburg, Germany",
-    description:
-      "Built responsive web applications and mobile apps for various clients in the transportation sector. Focused on front-end development and user experience design.",
-    skills: ["Azure", "SAP", "ABAP", "Java", "Project Management"],
+    description: [
+      // Professional phrasing, removed "spearheaded"
+      "Configured and optimized SharePoint and SAP controlling processes, enhancing internal system efficiency.",
+      "Developed microservice APIs for SAP, incorporating Azure cloud solutions to improve service delivery.",
+    ],
+    skills: [
+      "SAP",
+      "SharePoint",
+      "Azure",
+      "Microservices",
+      "API Development",
+      "Process Optimization",
+    ],
   },
 ];
 
-// Sample education data
+// Updated education data - Professional but approachable tone
 const education = [
   {
-    degree: "Master of Science in Information Studies (System Design)",
+    degree: "M. Sc. Information Studies",
     institution: "University of Amsterdam",
-    period: "2022-2023",
+    period: "Sep 2022 - Aug 2023",
     location: "Amsterdam, Netherlands",
-    description:
-      "Specialized in Software Engineering and Distributed Systems. Thesis on 'Optimizing Real-time Data Processing for Maritime Logistics'.",
+    description: [
+      // Clear, descriptive phrasing
+      "Led a project on real-time facial recognition in video streams.",
+      "Developed environmental sensors for measuring human emotional responses, applying HCI principles.",
+      "Conducted a satellite data analysis project related to agricultural moisture levels.",
+    ],
   },
   {
-    degree:
-      "Bachelor of Science in Computer Science and Business Administration",
-    institution: "Nordakademie University of Applied Sciences",
-    period: "2017 - 2021",
+    degree: "B. Sc. Computer Science and Business Administration",
+    institution: "Nordakademie – University of Applied Sciences",
+    period: "Aug 2017 - Mar 2021",
     location: "Hamburg, Germany",
-    description:
-      "Focused on web development and database management. Graduated with honors.",
+    description: [
+      // Clear, descriptive phrasing
+      "Specialized in Business Process Design using BPMN to improve operational workflows.",
+      "Completed a thesis focused on efficient API design between ERP systems and microservices.",
+    ],
   },
 ];

@@ -1,15 +1,18 @@
-import Link from "next/link"
-import Image from "next/image"
-import { ArrowLeft } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
 
-export default function CropSightPage() {
+export default function BlogPostPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="w-full py-4 px-4 md:px-6 border-b">
         <div className="container flex justify-between items-center">
-          <Link href="/" className="text-xl font-bold hover:text-primary transition-colors">
+          <Link
+            href="/"
+            className="text-xl font-bold hover:text-primary transition-colors"
+          >
             ramdohr.dev
           </Link>
           <div className="flex items-center gap-4">
@@ -27,172 +30,190 @@ export default function CropSightPage() {
       <main className="flex-1 py-12">
         <article className="container px-4 md:px-6 max-w-3xl mx-auto prose dark:prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-a:text-primary">
           <div className="mb-8">
+            {/* --- Updated Title --- */}
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-              CropSight: Satellite Data Analysis for Agricultural Optimization
+              Yield Prediction Using Satellite Data and Machine Learning
             </h1>
-            <p className="text-muted-foreground">September 12, 2022</p>
+            {/* --- Optional: Update or remove date --- */}
+            <p className="text-muted-foreground">October 26, 2023</p>
           </div>
 
           <div className="relative w-full aspect-video mb-8 rounded-lg overflow-hidden">
             <Image
-              src="/placeholder.svg?height=600&width=1200&text=CropSight+Satellite+Analysis"
-              alt="CropSight Satellite Analysis"
+              src="/crop-yield.png?height=600&width=1200&text=ESP8266+Environment+Sensor"
+              alt="ESP8266 Environment Sensor"
               fill
               className="object-cover"
             />
           </div>
 
+          {/* --- Replaced Content --- */}
           <div className="markdown">
-            <h2>Project Background</h2>
             <p>
-              CropSight was developed as a collaborative project with a team of four specialists in machine learning,
-              remote sensing, agronomy, and software development. Our goal was to create an accessible tool that would
-              allow farmers and agricultural consultants to leverage satellite imagery for optimizing crop management
-              without requiring expertise in remote sensing or data science.
+              Efficient water resource management in agriculture is a critical
+              challenge, especially in the face of climate change and increasing
+              freshwater demand. This article explores the technical aspects of
+              a system designed to optimize agricultural practices by leveraging
+              satellite data and machine learning models to predict crop yields.
+              The system integrates environmental sensors, satellite imagery,
+              and advanced data processing techniques to provide actionable
+              insights for farmers.
             </p>
 
-            <h2>The Challenge</h2>
+            <h2>System Architecture Overview</h2>
             <p>
-              Modern agriculture faces increasing pressure to produce more food with fewer resources while minimizing
-              environmental impact. Satellite data offers valuable insights, but several barriers prevent widespread
-              adoption:
+              The system architecture is built around the integration of
+              satellite data, environmental indices, and machine learning
+              models. At its core, the system utilizes Google Earth Engine (GEE)
+              for processing satellite imagery and extracting key environmental
+              indices. These indices are then used to analyze soil moisture,
+              vegetation health, and other critical factors that influence crop
+              yield.
             </p>
-            <ul>
-              <li>Raw satellite imagery requires significant processing to extract actionable information</li>
-              <li>
-                Most existing solutions are either too expensive for small to medium farms or too complex for
-                non-specialists to use effectively
-              </li>
-              <li>Translating satellite data into specific management actions requires agronomic expertise</li>
-              <li>
-                Timely analysis is critical for in-season decision-making, but processing delays often reduce usefulness
-              </li>
-            </ul>
-
-            <h2>Our Solution</h2>
             <p>
-              CropSight addresses these challenges through an integrated platform that combines satellite data
-              processing with agronomic intelligence:
-            </p>
-            <ul>
-              <li>
-                <strong>Automated Data Acquisition:</strong> Integration with multiple satellite sources (Sentinel-2,
-                Landsat, Planet) for regular field monitoring
-              </li>
-              <li>
-                <strong>Advanced Image Processing:</strong> Cloud detection, atmospheric correction, and spectral index
-                calculation (NDVI, NDRE, NDWI, etc.)
-              </li>
-              <li>
-                <strong>Machine Learning Analysis:</strong> Crop health classification, yield prediction, and anomaly
-                detection
-              </li>
-              <li>
-                <strong>Actionable Recommendations:</strong> Translation of data insights into specific management
-                actions for irrigation, fertilization, and pest control
-              </li>
-              <li>
-                <strong>User-Friendly Interface:</strong> Interactive maps and simple reporting designed for farmers and
-                agronomists
-              </li>
-            </ul>
-
-            <h2>Technical Implementation</h2>
-            <p>
-              As the lead developer on the project, I was responsible for architecting and implementing the
-              application's core functionality:
-            </p>
-            <ul>
-              <li>
-                <strong>Backend:</strong> Python with Django for the API, with specialized libraries (rasterio,
-                scikit-learn, xarray) for geospatial processing
-              </li>
-              <li>
-                <strong>Frontend:</strong> React with Mapbox GL for interactive mapping and data visualization
-              </li>
-              <li>
-                <strong>Data Pipeline:</strong> Automated workflows using Airflow for satellite data acquisition and
-                processing
-              </li>
-              <li>
-                <strong>Machine Learning:</strong> Custom models for crop classification and yield prediction, deployed
-                using TensorFlow Serving
-              </li>
-              <li>
-                <strong>Infrastructure:</strong> Containerized deployment on AWS with auto-scaling for
-                processing-intensive tasks
-              </li>
-            </ul>
-
-            <h2>My Contribution</h2>
-            <p>Within our collaborative team, I focused on several key aspects:</p>
-            <ul>
-              <li>Designing the system architecture to handle large geospatial datasets efficiently</li>
-              <li>Implementing the satellite data processing pipeline with optimizations for speed and accuracy</li>
-              <li>Developing the API layer connecting the frontend with processing and analysis services</li>
-              <li>Creating interactive visualization components for complex agricultural data</li>
-              <li>Ensuring the system remained accessible to users with limited technical expertise</li>
-            </ul>
-
-            <h2>Results and Impact</h2>
-            <p>CropSight was piloted with 12 farms across different agricultural regions, with impressive results:</p>
-            <ul>
-              <li>15-20% reduction in fertilizer usage through more targeted application</li>
-              <li>
-                Early detection of irrigation issues and pest problems, preventing yield losses estimated at 8-12%
-              </li>
-              <li>Improved harvest timing decisions based on crop maturity mapping</li>
-              <li>Simplified compliance reporting for environmental regulations</li>
-            </ul>
-
-            <p>
-              One particularly successful case involved a 500-hectare wheat farm that identified a developing nutrient
-              deficiency pattern invisible from ground level. Targeted intervention saved an estimated 30% of potential
-              yield loss in the affected areas.
+              The backend of the system is developed using Node.js, which serves
+              as the intermediary between the satellite data processing pipeline
+              and the app interface. The app, built using Flutter, provides
+              real-time analytics and visualizations to end-users, enabling
+              informed decision-making in agricultural management.
             </p>
 
-            <h2>Challenges and Lessons</h2>
-            <p>The project presented several significant challenges:</p>
-            <ul>
-              <li>
-                <strong>Data Variability:</strong> Dealing with inconsistent satellite imagery due to cloud cover and
-                varying acquisition parameters
-              </li>
-              <li>
-                <strong>Performance Optimization:</strong> Balancing processing thoroughness with the need for timely
-                results
-              </li>
-              <li>
-                <strong>Knowledge Translation:</strong> Converting technical analysis into practical recommendations
-                understandable by farmers
-              </li>
-              <li>
-                <strong>Regional Adaptation:</strong> Adjusting algorithms for different crops, growing conditions, and
-                agricultural practices
-              </li>
-            </ul>
-
+            <h2>
+              Leveraging Google Earth Engine for Soil Information Extraction
+            </h2>
             <p>
-              These challenges taught valuable lessons about the importance of user-centered design in technical
-              applications and the need for flexible, adaptable systems when working with environmental data.
+              Google Earth Engine is a powerful cloud-based platform for
+              geospatial analysis, offering access to a vast repository of
+              satellite imagery and geospatial datasets. In this project, GEE
+              was utilized to extract soil and vegetation information by
+              computing environmental indices such as:
             </p>
 
-            <h2>Future Development</h2>
-            <p>CropSight continues to evolve with several planned enhancements:</p>
+            <h3>1. Normalized Difference Vegetation Index (NDVI)</h3>
+            <p>
+              NDVI is a widely used index for assessing vegetation health. It is
+              calculated using the reflectance values of near-infrared (NIR) and
+              red light bands:
+            </p>
+            {/* Formula Representation */}
+            <div className="bg-muted p-4 rounded-md overflow-x-auto my-4">
+              <code className="whitespace-pre">
+                {"NDVI = (NIR - Red) / (NIR + Red)"}
+              </code>
+            </div>
+            <p>
+              Higher NDVI values indicate healthier vegetation, which is crucial
+              for predicting crop yields.
+            </p>
+
+            <h3>2. Normalized Difference Water Index (NDWI)</h3>
+            <p>
+              NDWI is used to monitor water content in vegetation and soil. It
+              is computed using the green and NIR bands:
+            </p>
+            {/* Formula Representation */}
+            <div className="bg-muted p-4 rounded-md overflow-x-auto my-4">
+              <code className="whitespace-pre">
+                {"NDWI = (Green - NIR) / (Green + NIR)"}
+              </code>
+            </div>
+            <p>
+              This index helps in assessing soil moisture levels, which are
+              vital for irrigation planning.
+            </p>
+
+            <h3>3. Enhanced Vegetation Index (EVI)</h3>
+            <p>
+              EVI improves upon NDVI by reducing atmospheric influences and
+              accounting for canopy background signals. It is calculated as:
+            </p>
+            {/* Formula Representation */}
+            <div className="bg-muted p-4 rounded-md overflow-x-auto my-4">
+              <code className="whitespace-pre">
+                {"EVI = G * (NIR - Red) / (NIR + C₁ * Red - C₂ * Blue + L)"}
+              </code>
+            </div>
+            <p>
+              where <em>G</em> is the gain factor, <em>C₁</em> and <em>C₂</em>{" "}
+              are coefficients for aerosol resistance, and <em>L</em> is the
+              canopy background adjustment.
+            </p>
+            <p>
+              These indices were computed using satellite imagery from platforms
+              such as Sentinel-2 and Landsat, which provide high-resolution data
+              suitable for agricultural analysis. The processing pipeline in GEE
+              involved filtering images based on cloud cover, selecting relevant
+              spectral bands, and applying mathematical operations to derive the
+              indices.
+            </p>
+
+            <h2>Data Processing and Analysis</h2>
+            <p>
+              The extracted indices were further processed to generate
+              actionable insights. This involved:
+            </p>
             <ul>
-              <li>Integration with ground-based IoT sensors for calibration and validation</li>
-              <li>Expanded crop type support beyond the initial focus on cereal crops</li>
-              <li>Advanced predictive modeling for pest and disease risk</li>
-              <li>Mobile application for in-field data access and validation</li>
-              <li>API for integration with farm management and machinery systems</li>
+              <li>
+                <strong>Temporal Analysis:</strong> Satellite data was analyzed
+                over time to identify trends in vegetation health and soil
+                moisture. This temporal analysis helped in understanding
+                seasonal variations and predicting potential crop yields.
+              </li>
+              <li>
+                <strong>Spatial Analysis:</strong> Spatial patterns of soil
+                moisture and vegetation health were mapped to identify areas
+                requiring intervention. This spatial analysis was critical for
+                optimizing irrigation and resource allocation.
+              </li>
+              <li>
+                <strong>Machine Learning Integration:</strong> The processed
+                data was fed into machine learning models to predict crop
+                yields. The ML4EARTH HACKATHON dataset was used for training and
+                validating these models. Techniques such as feature engineering,
+                dimensionality reduction, and hyperparameter tuning were
+                employed to improve model accuracy.
+              </li>
             </ul>
 
+            <h2>Backend and App Integration</h2>
             <p>
-              The project demonstrates how satellite technology, when properly processed and presented, can make
-              precision agriculture accessible to a broader range of farmers, contributing to both economic and
-              environmental sustainability.
+              The backend, developed in Node.js, acted as the central hub for
+              data processing and communication. It interfaced with GEE to
+              retrieve satellite data, processed the data to compute indices,
+              and stored the results in a database. The backend also provided
+              APIs for the Flutter-based app, enabling real-time data
+              visualization and analytics.
+            </p>
+            <p>
+              The app was designed to be user-friendly, offering farmers
+              insights into field conditions and crop yield predictions. Key
+              features included:
+            </p>
+            <ul>
+              <li>
+                Interactive maps displaying soil moisture and vegetation health.
+              </li>
+              <li>Graphs showing temporal trends in environmental indices.</li>
+              <li>
+                Recommendations for irrigation and resource management based on
+                predictive analytics.
+              </li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>
+              This system represents a significant advancement in agricultural
+              management by integrating satellite data, environmental indices,
+              and machine learning models. The use of Google Earth Engine for
+              soil information extraction ensures accurate and scalable
+              analysis, while the backend and app provide a seamless interface
+              for end-users. By leveraging these technologies, the system offers
+              a data-driven approach to optimizing water resource use and
+              enhancing crop yields, addressing the challenges posed by climate
+              change and increasing freshwater demand.
             </p>
           </div>
+          {/* --- End of Replaced Content --- */}
         </article>
       </main>
 
@@ -203,10 +224,16 @@ export default function CropSightPage() {
               © {new Date().getFullYear()} ramdohr.dev. All rights reserved.
             </p>
             <div className="flex gap-4">
-              <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground">
+              <Link
+                href="/contact"
+                className="text-sm text-muted-foreground hover:text-foreground"
+              >
                 Contact
               </Link>
-              <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground">
+              <Link
+                href="/privacy"
+                className="text-sm text-muted-foreground hover:text-foreground"
+              >
                 Privacy Policy
               </Link>
             </div>
@@ -214,6 +241,5 @@ export default function CropSightPage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
-

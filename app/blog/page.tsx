@@ -118,11 +118,4 @@ const blogPosts = [
       "How I used Google Earth Engine to analyse sattelite data and creat mobile visualizations.",
     link: "/blog/field-insights",
   },
-  {
-    title: "Untitled Unity Game",
-    date: "December 10, 2022",
-    excerpt:
-      "How to come up with the right challange to learn a tool without getting stuck in tutorial hell.",
-    link: "/blog/untitled-unity-game",
-  },
 ];

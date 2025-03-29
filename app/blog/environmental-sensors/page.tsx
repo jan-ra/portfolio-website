@@ -1,15 +1,18 @@
-import Link from "next/link"
-import Image from "next/image"
-import { ArrowLeft, Github } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowLeft, Github } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function EnvironmentalSensorPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="w-full py-4 px-4 md:px-6 border-b">
         <div className="container flex justify-between items-center">
-          <Link href="/" className="text-xl font-bold hover:text-primary transition-colors">
+          <Link
+            href="/"
+            className="text-xl font-bold hover:text-primary transition-colors"
+          >
             ramdohr.dev
           </Link>
           <div className="flex items-center gap-4">
@@ -28,15 +31,16 @@ export default function EnvironmentalSensorPage() {
         <article className="container px-4 md:px-6 max-w-3xl mx-auto prose dark:prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-a:text-primary">
           <div className="mb-8">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-              Environmental Sensor Network: Master Thesis Project
+              Developing a Custom ESP8266-Based Environment Sensor: A Technical
+              Deep Dive
             </h1>
             <p className="text-muted-foreground">April 3, 2023</p>
           </div>
 
           <div className="relative w-full aspect-video mb-8 rounded-lg overflow-hidden">
             <Image
-              src="/placeholder.svg?height=600&width=1200&text=Environmental+Sensor+Network"
-              alt="Environmental Sensor Network"
+              src="/sensor.png?height=600&width=1200&text=ESP8266+Environment+Sensor"
+              alt="ESP8266 Environment Sensor"
               fill
               className="object-cover"
             />
@@ -44,7 +48,7 @@ export default function EnvironmentalSensorPage() {
 
           <div className="flex justify-center mb-8">
             <Link
-              href="https://github.com/yourusername/environmental-sensors"
+              href="https://github.com/jan-ra/ESP8266-environment-sensor"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -56,150 +60,152 @@ export default function EnvironmentalSensorPage() {
           </div>
 
           <div className="markdown">
-            <h2>Project Overview</h2>
+            <h2>Conceptualizing the Sensor</h2>
             <p>
-              For my master's thesis in Environmental Engineering, I designed and implemented a network of IoT sensors
-              to monitor environmental conditions in urban green spaces. The project aimed to collect real-time data on
-              air quality, soil moisture, temperature, and light exposure to better understand the microclimate factors
-              affecting urban vegetation.
+              The idea was simple: build a compact, reliable, and customizable
+              sensor that could collect environmental data in real-time. The
+              ESP8266 microcontroller was the obvious choice for this project
+              due to its affordability, versatility, and built-in WiFi
+              capabilities. However, the ESP8266 couldn’t connect to the
+              university’s eduroam network, so I had to rely on local data
+              storage using a micro SD card.
+            </p>
+            <p>
+              The sensor needed to measure three key parameters: sound levels,
+              light intensity, and nearby devices (as a proxy for occupancy).
+              Each of these measurements required careful hardware selection and
+              software configuration.
             </p>
 
-            <h2>The Problem</h2>
+            <h2>Hardware Design</h2>
             <p>
-              Urban green spaces face numerous challenges, from pollution to inadequate maintenance. Traditional
-              monitoring methods are labor-intensive and provide only periodic snapshots rather than continuous data. My
-              research identified several key issues:
-            </p>
-            <ul>
-              <li>Limited understanding of microclimate variations within urban environments</li>
-              <li>Difficulty correlating environmental factors with plant health</li>
-              <li>Inefficient resource allocation for irrigation and maintenance</li>
-              <li>Lack of accessible data for urban planning decisions</li>
-            </ul>
-
-            <h2>Technical Implementation</h2>
-            <p>
-              The sensor network consisted of multiple nodes deployed across three urban parks in Berlin. Each node
-              included:
+              The hardware setup was built around the{" "}
+              <strong>NodeMCU ESP8266 12.0</strong>, which served as the central
+              processing unit. Here’s a breakdown of the components I used:
             </p>
             <ul>
               <li>
-                <strong>Hardware:</strong> Arduino-based microcontrollers with custom PCB designs
+                <strong>Sound Sensor: MAX9814</strong> - Measures sound pressure
+                levels, which can be converted into decibels. Calibration was
+                required to ensure accurate readings.
               </li>
               <li>
-                <strong>Sensors:</strong> BME280 (temperature, humidity, pressure), SPS30 (particulate matter),
-                capacitive soil moisture sensors, and light intensity sensors
+                <strong>Light Sensor: BH1750FVI</strong> - Measures ambient
+                light intensity using I2C communication. A light ball diffuser
+                was added for consistent readings.
               </li>
               <li>
-                <strong>Power:</strong> Solar panels with LiPo battery backup for sustainable operation
+                <strong>Device Counting:</strong> The ESP8266 was put into
+                promiscuous mode to detect WiFi probe requests and estimate
+                occupancy levels.
               </li>
               <li>
-                <strong>Connectivity:</strong> LoRaWAN for low-power, long-range data transmission
+                <strong>Micro SD Card Adapter:</strong> Used for local data
+                storage, with encrypted files for security.
               </li>
             </ul>
 
-            <p>The software stack included:</p>
-            <ul>
-              <li>
-                <strong>Embedded Firmware:</strong> C++ for Arduino with power optimization
-              </li>
-              <li>
-                <strong>Backend:</strong> Python with Flask for API services and data processing
-              </li>
-              <li>
-                <strong>Database:</strong> InfluxDB for time-series data storage
-              </li>
-              <li>
-                <strong>Visualization:</strong> Custom dashboard built with React and D3.js
-              </li>
-            </ul>
-
-            <h2>Challenges and Solutions</h2>
-            <h3>Power Management</h3>
+            <h2>Software Implementation</h2>
             <p>
-              Ensuring continuous operation without frequent battery replacements was a significant challenge. I
-              implemented an adaptive power management system that adjusted sampling frequency based on battery levels
-              and environmental conditions. During periods of low light, the system would reduce sampling rates to
-              conserve energy.
-            </p>
-
-            <h3>Environmental Hardening</h3>
-            <p>
-              Outdoor deployment required protection against weather, vandalism, and wildlife. I designed custom
-              enclosures using 3D printing with weather-resistant materials. The enclosures included passive cooling
-              systems to prevent overheating during summer months.
-            </p>
-
-            <h3>Data Reliability</h3>
-            <p>
-              Sensor drift and occasional connectivity issues threatened data integrity. To address this, I implemented:
-            </p>
-            <ul>
-              <li>Sensor fusion algorithms to cross-validate readings</li>
-              <li>Local data buffering to handle connectivity interruptions</li>
-              <li>Automated calibration routines based on reference measurements</li>
-            </ul>
-
-            <h2>Research Findings</h2>
-            <p>The six-month deployment yielded several interesting findings:</p>
-            <ul>
-              <li>
-                Microclimate variations within parks were much more significant than expected, with temperature
-                differences of up to 8°C between locations just 50 meters apart
-              </li>
-              <li>
-                Soil moisture levels correlated strongly with canopy density, but with unexpected seasonal variations
-              </li>
-              <li>
-                Air quality showed distinct patterns related to traffic flow, with measurable improvements in areas with
-                mature tree coverage
-              </li>
-              <li>
-                Light exposure patterns revealed optimal locations for different plant species based on their specific
-                requirements
-              </li>
-            </ul>
-
-            <h2>Impact and Applications</h2>
-            <p>The project has had several practical applications:</p>
-            <ul>
-              <li>
-                The Berlin Parks Department used the data to optimize irrigation schedules, reducing water usage by
-                approximately 30%
-              </li>
-              <li>
-                Urban planners incorporated findings into the design of a new green space, selecting plant species based
-                on microclimate data
-              </li>
-              <li>
-                The open-source hardware and software designs have been adopted by two other European cities for similar
-                monitoring projects
-              </li>
-              <li>
-                The research contributed to a broader understanding of urban heat island effects and mitigation
-                strategies
-              </li>
-            </ul>
-
-            <h2>Future Development</h2>
-            <p>While the initial research project has concluded, development continues in several directions:</p>
-            <ul>
-              <li>Integration with irrigation systems for automated, data-driven watering</li>
-              <li>Expanded sensor types to include noise pollution and biodiversity indicators</li>
-              <li>Machine learning models to predict maintenance needs based on environmental trends</li>
-              <li>
-                Community science initiatives allowing citizens to deploy compatible sensors and contribute to the
-                dataset
-              </li>
-            </ul>
-
-            <p>
-              The project's code and hardware designs are available on{" "}
-              <a href="https://github.com/yourusername/environmental-sensors" target="_blank" rel="noopener noreferrer">
-                GitHub
+              The software for the sensor was developed using{" "}
+              <a
+                href="https://platformio.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                PlatformIO
               </a>{" "}
-              under an open-source license. I welcome contributions and adaptations for different environmental
-              monitoring applications.
+              in VSCode. Here’s a breakdown of the key features:
+            </p>
+            <ul>
+              <li>
+                <strong>Data Collection:</strong> The ESP8266 collected data
+                from the sensors every minute and stored it on the SD card in
+                encrypted form.
+              </li>
+              <li>
+                <strong>Sound Level Calculation:</strong> Raw voltage readings
+                from the MAX9814 were converted into decibels using a
+                logarithmic formula.
+              </li>
+              <li>
+                <strong>Light Intensity Measurement:</strong> The BH1750FVI
+                provided readings in lux, which were directly written to the SD
+                card.
+              </li>
+              <li>
+                <strong>Device Counting:</strong> WiFi probe requests were
+                detected and processed to estimate occupancy levels.
+              </li>
+              <li>
+                <strong>Data Encryption:</strong> AES encryption was used to
+                secure the data, with a Python script for decryption during
+                analysis.
+              </li>
+            </ul>
+
+            <h2>Data Processing and Analysis</h2>
+            <p>
+              Once the sensor had collected enough data, I transferred the
+              encrypted files to my computer and decrypted them using the Python
+              script. The data was then processed using statistical and machine
+              learning techniques to uncover patterns and correlations.
+            </p>
+            <ul>
+              <li>
+                <strong>Sound Levels:</strong> Excessive noise negatively
+                impacted comfort and focus, while moderate background noise was
+                generally well-tolerated.
+              </li>
+              <li>
+                <strong>Light Intensity:</strong> Brighter light levels were
+                associated with more positive emotions, especially during group
+                activities.
+              </li>
+              <li>
+                <strong>Device Counts:</strong> Higher occupancy often created a
+                lively atmosphere but could also lead to overcrowding and
+                discomfort.
+              </li>
+            </ul>
+
+            <h2>Challenges and Lessons Learned</h2>
+            <p>
+              This project wasn’t without its challenges. Here are a few key
+              lessons I learned along the way:
+            </p>
+            <ul>
+              <li>
+                <strong>Hardware Compatibility:</strong> Not all SD card brands
+                worked well with the ESP8266. Testing different options was
+                essential for ensuring reliable data storage.
+              </li>
+              <li>
+                <strong>Sensor Calibration:</strong> Calibrating the MAX9814
+                microphone was tricky but crucial for accurate sound level
+                measurements.
+              </li>
+              <li>
+                <strong>Privacy Concerns:</strong> Implementing anonymized
+                device counting required careful consideration to ensure no
+                personal data was collected.
+              </li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>
+              Building this custom ESP8266-based environment sensor was a
+              rewarding technical challenge. From hardware design to software
+              implementation and data analysis, the project pushed me to explore
+              new technologies and problem-solving techniques. While the sensor
+              was designed for a specific research purpose, its modular design
+              and customizable features make it adaptable to other applications.
+            </p>
+            <p>
+              If you’re interested in building your own environment sensor or
+              have questions about the technical process, feel free to reach
+              out. I’d be happy to share more details or help troubleshoot your
+              setup!
             </p>
           </div>
         </article>
@@ -212,10 +218,16 @@ export default function EnvironmentalSensorPage() {
               © {new Date().getFullYear()} ramdohr.dev. All rights reserved.
             </p>
             <div className="flex gap-4">
-              <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground">
+              <Link
+                href="/contact"
+                className="text-sm text-muted-foreground hover:text-foreground"
+              >
                 Contact
               </Link>
-              <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground">
+              <Link
+                href="/privacy"
+                className="text-sm text-muted-foreground hover:text-foreground"
+              >
                 Privacy Policy
               </Link>
             </div>
@@ -223,6 +235,5 @@ export default function EnvironmentalSensorPage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
-

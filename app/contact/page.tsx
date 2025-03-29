@@ -38,10 +38,10 @@ export default function ContactPage() {
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Contact Us
+                Contact Me
               </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                Get in touch with us for any inquiries or feedback.
+                Get in touch with me for any inquiries or feedback.
               </p>
             </div>
           </div>
@@ -51,7 +51,7 @@ export default function ContactPage() {
               <CardHeader>
                 <CardTitle>Contact Information</CardTitle>
                 <CardDescription>
-                  Here are the different ways you can reach us.
+                  Here are the different ways you can reach me.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -60,14 +60,14 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-medium">Email</h3>
                     <Link
-                      href="mailto:contact@ramdohr.dev"
+                      href="mailto:jan@ramdohr.dev"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      contact@ramdohr.dev
+                      jan@ramdohr.dev
                     </Link>
                   </div>
                 </div>
-                <div className="flex items-start space-x-4">
+                {/*                 <div className="flex items-start space-x-4">
                   <Phone className="h-5 w-5 mt-0.5 text-muted-foreground" />
                   <div>
                     <h3 className="font-medium">Phone</h3>
@@ -91,7 +91,7 @@ export default function ContactPage() {
                       Germany
                     </p>
                   </div>
-                </div>
+                </div> */}
               </CardContent>
             </Card>
           </div>

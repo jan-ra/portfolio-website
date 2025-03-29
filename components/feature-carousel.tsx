@@ -37,57 +37,53 @@ export function FeatureCarousel({ features }: FeatureCarouselProps) {
     return () => clearInterval(interval);
   }, [current, autoplay]);
 
-  // Helper functions to get previous and next indices
   const getPrevIndex = () => (current - 1 + features.length) % features.length;
   const getNextIndex = () => (current + 1) % features.length;
 
   return (
-    <div
-      className="relative w-full max-w-sm mx-auto"
-      onMouseEnter={() => setAutoplay(false)}
-      onMouseLeave={() => setAutoplay(true)}
-    >
-      {/* Carousel Container */}
-      <div className="relative flex items-center justify-center overflow-hidden">
+    <div className="relative w-full max-w-sm mx-auto">
+      {/* Carousel Container with phone screen aspect ratio */}
+      <div
+        className="relative flex items-center justify-center aspect-[9/12] overflow-visible"
+        onMouseEnter={() => setAutoplay(false)}
+        onMouseLeave={() => setAutoplay(true)}
+      >
         {/* Previous Image */}
-        <div
-          className="absolute left-0 transform -translate-x-1/2 opacity-50 scale-75 transition-all duration-500"
-          style={{ width: "60%", height: "auto" }}
-        >
-          <Image
-            src={features[getPrevIndex()].image || "/placeholder.svg"}
-            alt={features[getPrevIndex()].title}
-            fill
-            className="object-cover rounded-lg"
-          />
+        <div className="absolute left-0 z-10 w-1/3 h-full transition-all duration-300">
+          <div className="relative w-full h-full">
+            <Image
+              src={features[getPrevIndex()].image || "/placeholder.svg"}
+              alt={features[getPrevIndex()].title}
+              fill
+              className="object-cover rounded-lg opacity-80"
+              style={{ transform: "scale(0.8)" }}
+            />
+          </div>
         </div>
 
-        {/* Current Image */}
-        <div
-          className="relative w-full"
-          style={{
-            paddingTop: "177.78%", // 9:16 aspect ratio
-          }}
-        >
+        {/* Current Image with Fade Animation */}
+        <div className="relative z-20 w-2/3 h-full">
           <Image
+            // Using `key` forces remount so the animation triggers on every change.
+            key={current}
             src={features[current].image || "/placeholder.svg"}
             alt={features[current].title}
             fill
-            className="absolute top-0 left-0 w-full h-full object-cover rounded-lg transition-all duration-500"
+            className="object-cover rounded-lg transition-all duration-300 fade-in"
           />
         </div>
 
         {/* Next Image */}
-        <div
-          className="absolute right-0 transform translate-x-1/2 opacity-50 scale-75 transition-all duration-500"
-          style={{ width: "60%", height: "auto" }}
-        >
-          <Image
-            src={features[getNextIndex()].image || "/placeholder.svg"}
-            alt={features[getNextIndex()].title}
-            fill
-            className="object-cover rounded-lg"
-          />
+        <div className="absolute right-0 z-10 w-1/3 h-full transition-all duration-300">
+          <div className="relative w-full h-full">
+            <Image
+              src={features[getNextIndex()].image || "/placeholder.svg"}
+              alt={features[getNextIndex()].title}
+              fill
+              className="object-cover rounded-lg opacity-80"
+              style={{ transform: "scale(0.8)" }}
+            />
+          </div>
         </div>
       </div>
 

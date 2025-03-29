@@ -251,7 +251,7 @@ const projects = [
     image: "/sensor.png?height=400&width=800&text=Environmental+Sensors",
     tags: ["IoT", "ESP-2688", "C", "Data Visualization"],
     github: "https://github.com/yourusername/environmental-sensors",
-    readMore: "/blog/environmental-sensor-network",
+    readMore: "/blog/environmental-sensors",
   },
   {
     title: "Crop yield prediction",
@@ -259,14 +259,6 @@ const projects = [
       "Case study and proof of concept implementation for satellite-based crop yield prediction.",
     image: "/crop-yield.png?height=400&width=800&text=CropSight",
     tags: ["Machine Learning", "Flutter", "Google Earth Engine"],
-    readMore: "/blog/cropsight-satellite-analysis",
-  },
-  {
-    title: "Untitled Bird Game",
-    description:
-      "I am currently working on a small Unity Game about bird migrations to get familiar with the engine",
-    image: "/unity.jpg?height=400&width=800&text=Nebula+Voyager",
-    tags: ["Unity Engine", "C#", "Blender", "Animation"],
-    readMore: "/blog/nebula-voyager-preview",
+    readMore: "/blog/field-insights",
   },
 ];
