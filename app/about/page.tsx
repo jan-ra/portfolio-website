@@ -56,26 +56,29 @@ export default function AboutPage() {
               </h1>
               <h2 className="text-xl text-muted-foreground mb-6">
                 {/* Back to the original, professional title */}
-                Software Engineer and Data Explainer
+                Cloud and Software Engineer
               </h2>
               <div className="prose dark:prose-invert max-w-none">
                 {/* Updated Introduction - Friendly Professional */}
                 <p>
-                  Hello! I'm Jan, a Software Engineer based in Delft with a
-                  strong interest in cloud technologies and data analysis. I
-                  enjoy building robust software solutions and exploring how
-                  data can provide valuable insights.
+                  Hi! I'm Jan. I build systems that solve complex problems. At
+                  work, I wrangle Kubernetes clusters and all the various cloud
+                  services you come across, shaping them into systems that
+                  actually help the devs I work with, instead of drowning them
+                  in a mess of configuration files.
                 </p>
                 <p>
-                  My background includes a mix of academic study and hands-on
-                  professional experience, giving me skills in programming,
-                  system architecture, and project collaboration. I thrive in
-                  environments where I can contribute to technology-driven
-                  projects.
+                  I come at these problems from the dev side of things—I was a
+                  developer for a good while and, to a certain extent, still am.
+                  I spent years as a full-stack dev doing a whole lot of API
+                  "plumbing," and then slowly drifted more and more towards
+                  optimizing deployments and helping other devs get their code
+                  actually shipped.
                 </p>
                 <p>
-                  Outside of work, I'm involved in organizing youth sailing
-                  camps and enjoy the creativity of improv theater.
+                  On the side, I still tackle less complex projects to keep my
+                  coding muscles sharp. You can check out my projects by heading
+                  back to the homepage.
                 </p>
               </div>
             </div>
@@ -104,6 +107,7 @@ export default function AboutPage() {
                       {/* Standard Badges */}
                       <Badge>German (Native)</Badge>
                       <Badge>English (Professional)</Badge>
+                      <Badge>Dutch (Learning)</Badge>
                     </div>
                   </div>
                 </div>
@@ -249,103 +253,87 @@ export default function AboutPage() {
   );
 }
 
-// Updated work experience data - Professional but approachable tone
 const workExperience = [
   {
     title: "Cloud Engineer",
     company: "TJIP BV.",
-    period: "2024 - Present",
+    period: "Jun 2024 - Present",
     location: "Delft, Netherlands",
     description: [
-      // Clear, professional phrasing
-      "Maintaining and upgrading the company's server infrastructure.",
-      "Ensuring server infrastructure remains compliant with relevant standards.",
-      "Improving DevOps processes and the overall developer experience.",
+      "Simplifying historically grown systems into manageable components.",
+      "Consolidating and rearchitecting Kubernetes clusters while ensuring high availability.",
+      "Reducing cloud costs and downtime through enhanced monitoring and optimization.",
     ],
     skills: [
       "Azure",
       "Kubernetes",
-      "DevOps",
+      "Terraform",
       "GitOps",
       "Docker",
-      "Infrastructure Management",
-      "Compliance",
+      "CI/CD",
+      "Compliance & Security",
     ],
   },
   {
-    title: "Student Software Developer",
+    title: "Research Assistant",
     company: "University of Amsterdam",
     period: "Aug 2023 - Oct 2023",
     location: "Amsterdam, Netherlands",
     description:
-      "Developed and deployed a comprehensive API for data management, aimed at enhancing scientific project integration.", // Professional phrasing
-    skills: ["API Development", "Data Management", "Python"],
+      "Developed tooling created for my master's thesis into a usable, production-ready research API.",
+    skills: ["Node.js", "Python"],
   },
   {
-    title: "Junior Software Engineer",
+    title: "Full Stack Engineer",
     company: "Jungheinrich AG",
     period: "Apr 2021 - Aug 2022",
     location: "Hamburg, Germany",
     description: [
-      // Professional phrasing
-      "Engineered and implemented custom microservices in Azure to streamline SAP service integration.",
-      "Conducted code reviews and coordinated with external developers to maintain high software quality standards.",
-      "Facilitated DevOps processes for SAP interfaces, improving system reliability and deployment efficiency.",
+      "Designed and implemented APIs for rental fleet management, integrating with an SAP Core.",
+      "Designed and built the rental transport management mobile application.",
+      "Established and improved the company's evolving TypeScript and Node.js DevOps processes.",
     ],
-    skills: [
-      "Azure",
-      "Microservices",
-      "SAP Integration",
-      "DevOps",
-      "Code Review",
-      "Java",
-      "TypeScript",
-    ],
+    skills: ["Azure", "Node.js", "React Native", "SAP/ABAP"],
   },
   {
-    title: "Trainee (Bachelor Cooperation)",
+    title: "Trainee Engineer (Bachelor Degree Cooperation)",
     company: "Jungheinrich AG",
     period: "Aug 2017 - Mar 2021",
     location: "Hamburg, Germany",
     description: [
-      // Professional phrasing, removed "spearheaded"
-      "Configured and optimized SharePoint and SAP controlling processes, enhancing internal system efficiency.",
-      "Developed microservice APIs for SAP, incorporating Azure cloud solutions to improve service delivery.",
+      "Worked as a developer across various departments within the corporation.",
+      "Completed projects in Controlling, Infrastructure, and Enterprise Architecture.",
     ],
     skills: [
       "SAP",
-      "SharePoint",
       "Azure",
-      "Microservices",
-      "API Development",
+      "Controlling",
+      "Enterprise Architecture",
       "Process Optimization",
     ],
   },
 ];
 
-// Updated education data - Professional but approachable tone
 const education = [
   {
-    degree: "M. Sc. Information Studies",
+    degree: "M.Sc. Information Studies",
     institution: "University of Amsterdam",
     period: "Sep 2022 - Aug 2023",
     location: "Amsterdam, Netherlands",
     description: [
-      // Clear, descriptive phrasing
-      "Led a project on real-time facial recognition in video streams.",
-      "Developed environmental sensors for measuring human emotional responses, applying HCI principles.",
-      "Conducted a satellite data analysis project related to agricultural moisture levels.",
+      "Master's thesis focused on correlation analysis of interior environment data.",
+      "Project involving satellite data analysis to predict agricultural moisture levels.",
+      "General studies focused on the design of complex information systems.",
     ],
   },
   {
-    degree: "B. Sc. Computer Science and Business Administration",
+    degree: "B.Sc. Computer Science and Business Administration",
     institution: "Nordakademie – University of Applied Sciences",
     period: "Aug 2017 - Mar 2021",
     location: "Hamburg, Germany",
     description: [
-      // Clear, descriptive phrasing
-      "Specialized in Business Process Design using BPMN to improve operational workflows.",
-      "Completed a thesis focused on efficient API design between ERP systems and microservices.",
+      "Bachelor's thesis focused on long-term viable API design for ERP system integrations.",
+      "General studies focused on software engineering applications in business contexts.",
     ],
   },
 ];
